@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "es5",
+            "es2015"
+        ],
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "types": [
+            "node"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "files": [
+        "Gateway.ts",
+        "sample/server.ts",
+        "test/test.ts"
+    ]
+}
