@@ -1,5 +1,7 @@
 A gateway to Azure IoT Hub that can represent multiple devices over a single connection.
 
+[![Build Status](https://travis-ci.org/vjrantal/azure-iot-multiplexing-gateway.svg?branch=master)](https://travis-ci.org/vjrantal/azure-iot-multiplexing-gateway)
+
 # Running sample locally
 
 ```
