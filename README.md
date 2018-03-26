@@ -2,6 +2,8 @@ A gateway to Azure IoT Hub that can represent multiple devices over a single con
 
 [![Build Status](https://travis-ci.org/vjrantal/azure-iot-multiplexing-gateway.svg?branch=master)](https://travis-ci.org/vjrantal/azure-iot-multiplexing-gateway)
 
+To see an implementation of the same pattern in .NET Core, please see [this](https://github.com/fbeltrao/IoTHubGateway) project.
+
 # Basic functionality
 
 ```
