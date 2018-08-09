@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
+        "module": "commonjs",
         "lib": [
             "es5",
             "es2015"
@@ -11,10 +12,13 @@
             "node"
         ],
         "resolveJsonModule": true,
-        "declaration": true
+        "declaration": true,
+        "outDir": "dist",
+        "esModuleInterop": true
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "dist"
     ],
     "files": [
         "Gateway.ts",

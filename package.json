@@ -1,10 +1,11 @@
 {
   "name": "azure-iot-multiplexing-gateway",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A gateway to Azure IoT Hub that can represent multiple devices over a single connection.",
-  "main": "Gateway.js",
+  "main": "dist/Gateway.js",
+  "types": "dist/Gateway.d.ts",
   "scripts": {
-    "test": "tsc && node test/test.js",
+    "test": "tsc && node dist/test/test.js",
     "start": "tsc && node sample/server.js"
   },
   "engines": {

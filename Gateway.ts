@@ -6,7 +6,7 @@ import { SharedAccessSignature } from 'azure-iot-common';
 import { Message } from 'azure-iot-common';
 
 // tslint:disable-next-line:no-var-requires
-const packageJson = require('./package.json');
+const packageJson = require('../package.json');
 
 export class Gateway extends EventEmitter {
   sasExpiry: number = 3600; // 60 minutes
