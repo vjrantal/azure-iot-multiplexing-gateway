@@ -107,6 +107,21 @@ export class Gateway extends EventEmitter {
     });
   };
 
+  removeDevice(deviceId: string): Promise<Error> {
+    return new Promise((resolve, reject) => {
+      var link = '/devices/' + deviceId + '/messages/devicebound';
+      this.amqp.detachReceiverLink(link, (error, receiverLink) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        this.receiverLinks[deviceId].removeAllListeners();
+        delete this.receiverLinks[deviceId];
+        resolve();
+      });
+    });
+  };
+
   sendMessage(deviceId: string, message: Message): Promise<Error> {
     return new Promise((resolve, reject) => {
       var link = '/devices/' + deviceId + '/messages/events';
