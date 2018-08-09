@@ -5,6 +5,9 @@ import { ConnectionString } from 'azure-iot-common';
 import { SharedAccessSignature } from 'azure-iot-common';
 import { Message } from 'azure-iot-common';
 
+// tslint:disable-next-line:no-var-requires
+const packageJson = require('./package.json');
+
 export class Gateway extends EventEmitter {
   sasExpiry: number = 3600; // 60 minutes
   sasRenewalInterval: number = 2700; // 45 minutes
@@ -18,7 +21,7 @@ export class Gateway extends EventEmitter {
       this.connectionString = connectionString;
       this.receiverLinks = {};
 
-      this.amqp = new Amqp(autoSettleMessages, 'dummy');
+      this.amqp = new Amqp(autoSettleMessages);
 
       try {
         var parsedConnectionString = ConnectionString.parse(connectionString,
@@ -48,9 +51,12 @@ export class Gateway extends EventEmitter {
         return;
       }
 
-      var uri = 'amqps://' + endpoint + ':5671';
+      var transportConfig = {
+        uri: 'amqps://' + endpoint + ':5671',
+        userAgentString: packageJson.name + '/' + packageJson.version
+      };
 
-      this.amqp.connect(uri, null, (error) => {
+      this.amqp.connect(transportConfig, (error) => {
         if (error) {
           reject(error);
           return;
